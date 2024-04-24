@@ -6,7 +6,7 @@ The project aims to develop an SQL interpreter that analyzes "CREATE" commands a
 ## Key Features:
 
 ### SQL Command Analysis:
-- Interpretation of "CREATE TABLE", "CREATE INDEX", and other SQL "CREATE" commands.
+- Interpretation of "CREATE TABLE" and other SQL "CREATE" commands.
 
 ### Java Class File Generation:
 - Generate Java class files based on the interpreted "CREATE" commands.
