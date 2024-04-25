@@ -68,7 +68,7 @@ value: INTEGER_LITERAL
 
 
 // Create enum statement
-createEnumStatement: CREATE ENUM enumName LPAREN enumValue (COMMA enumValue)* RPAREN SEMICOLON;
+createEnumStatement: CREATE TYPE enumName AS ENUM LPAREN enumValue (COMMA enumValue)* RPAREN SEMICOLON;
 
 enumName: IDENTIFIER;
 
@@ -94,7 +94,8 @@ booleanValue: TRUE
 
 domainConstraint: checkConstraint
                 | uniqueConstraint
-                | defaultConstraint;
+                | defaultConstraint
+                | notNullConstraint;
 
 // Create type statement
 createTypeStatement: CREATE TYPE typeName AS LPAREN fieldDefinition (COMMA fieldDefinition)* RPAREN SEMICOLON;
