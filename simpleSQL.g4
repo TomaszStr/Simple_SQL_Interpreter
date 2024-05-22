@@ -24,15 +24,17 @@ primaryKeyDefinition: (CONSTRAINT IDENTIFIER)? PRIMARY KEY LPAREN columnName (CO
 foreignKeyDefinition: (CONSTRAINT IDENTIFIER)? FOREIGN KEY LPAREN columnName (COMMA columnName)* RPAREN REFERENCES tableName LPAREN columnName (COMMA columnName)* RPAREN;
 
 // Column definition NAME + TYPE + CONSTRAINTS?
-columnDefinition: columnName dataType columnConstraints?;
+columnDefinition: columnName dataType keyConstraint? columnConstraints*;
 
 // Future variable name
 columnName: IDENTIFIER;
 
+// Key Consttraints
+keyConstraint: primaryKeyConstraint
+              | foreignKeyConstraint;
+
 // Column Constraints
-columnConstraints: primaryKeyConstraint
-                 | foreignKeyConstraint
-                 | uniqueConstraint
+columnConstraints: uniqueConstraint
                  | notNullConstraint
                  | defaultConstraint
                  | checkConstraint;
@@ -147,8 +149,8 @@ GREATER: '>';
 LESSEQUAL: '<=';
 GREATEREQUAL: '>=';
 
-INTEGER_LITERAL: [0-9]+;
-FLOAT_LITERAL: [0-9]* '.' [0-9]+;
+INTEGER_LITERAL: ('-')?[0-9]+;
+FLOAT_LITERAL: ('-')?[0-9]* '.' [0-9]+;
 STRING_LITERAL: '\'' (~'\'')* '\'';
 IDENTIFIER: [a-zA-Z_][a-zA-Z_0-9]*;
 
