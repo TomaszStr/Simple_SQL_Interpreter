@@ -52,9 +52,9 @@ notNullConstraint: NOT NULL;
 defaultConstraint: DEFAULT defaultValue;
 
 // Declaring default value
-defaultValue: INTEGER_LITERAL
+defaultValue: MINUS? INTEGER_LITERAL
             | STRING_LITERAL
-            | FLOAT_LITERAL
+            | MINUS? FLOAT_LITERAL
             | booleanValue
             | NULL;
 
@@ -63,9 +63,9 @@ checkConstraint: CHECK LPAREN expression RPAREN;
 // Expression to check (in future possible regular expressions for text types)
 expression: IDENTIFIER (EQUALS | NOTEQUAL | LESS | GREATER | LESSEQUAL | GREATEREQUAL) value;
 
-value: INTEGER_LITERAL
+value: MINUS? INTEGER_LITERAL
      | STRING_LITERAL
-     | FLOAT_LITERAL
+     | MINUS? FLOAT_LITERAL
      | booleanValue;
 
 
@@ -148,9 +148,10 @@ LESS: '<';
 GREATER: '>';
 LESSEQUAL: '<=';
 GREATEREQUAL: '>=';
+MINUS: '-';
 
-INTEGER_LITERAL: ('-')?[0-9]+;
-FLOAT_LITERAL: ('-')?[0-9]* '.' [0-9]+;
+INTEGER_LITERAL: [0-9]+;
+FLOAT_LITERAL: [0-9]* '.' [0-9]+;
 STRING_LITERAL: '\'' (~'\'')* '\'';
 IDENTIFIER: [a-zA-Z_][a-zA-Z_0-9]*;
 
