@@ -1,13 +1,13 @@
-package org.example;
+package SqlToJava;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SqlClass extends SqlStatement {
-    // annotations in the future
     public List<SqlColumn> columnList;
 
-    public SqlClass(){
+    public SqlClass(String name){
+        this.name = name;
         columnList = new ArrayList<>();
     }
 
@@ -38,11 +38,30 @@ public class SqlClass extends SqlStatement {
     }
 
     private String generateConstructors() {
-        return "\tpublic "+ name +"(){\n\t}\n";
+        StringBuilder constructorBuilder = new StringBuilder();
+        constructorBuilder
+                .append("\tpublic ")
+                .append(name)
+                .append("(");
+
+        constructorBuilder.append(
+            String.join(",",
+            columnList.stream()
+                .map((sqlColumn -> sqlColumn.columnType+" "+sqlColumn.columnName))
+                .toList())
+        );
+
+        constructorBuilder.append("){\n\t\t");
+
+        constructorBuilder.append(
+                String.join(";\n\t\t",
+                        columnList.stream()
+                                .map((sqlColumn -> "this."+sqlColumn.columnName+" = "+sqlColumn.columnName))
+                                .toList())
+        );
+
+        constructorBuilder.append(";\n\t}\n");
+
+        return constructorBuilder.toString();
     }
-
-    void createClassFile(){
-
-    }
-
 }

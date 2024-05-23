@@ -1,5 +1,5 @@
 // Generated from C:/Users/tmstr/IdeaProjects/SQL_to_Java/simpleSQL.g4 by ANTLR 4.13.1
-package fromSQL;
+package ANTLRGenerated;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -268,15 +268,15 @@ public interface simpleSQLListener extends ParseTreeListener {
 	 */
 	void exitBooleanValue(simpleSQLParser.BooleanValueContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link simpleSQLParser#domainConstraint}.
+	 * Enter a parse tree produced by {@link simpleSQLParser#domainConstraints}.
 	 * @param ctx the parse tree
 	 */
-	void enterDomainConstraint(simpleSQLParser.DomainConstraintContext ctx);
+	void enterDomainConstraints(simpleSQLParser.DomainConstraintsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link simpleSQLParser#domainConstraint}.
+	 * Exit a parse tree produced by {@link simpleSQLParser#domainConstraints}.
 	 * @param ctx the parse tree
 	 */
-	void exitDomainConstraint(simpleSQLParser.DomainConstraintContext ctx);
+	void exitDomainConstraints(simpleSQLParser.DomainConstraintsContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link simpleSQLParser#createTypeStatement}.
 	 * @param ctx the parse tree

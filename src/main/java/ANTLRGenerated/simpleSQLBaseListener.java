@@ -1,5 +1,5 @@
 // Generated from C:/Users/tmstr/IdeaProjects/SQL_to_Java/simpleSQL.g4 by ANTLR 4.13.1
-package fromSQL;
+package ANTLRGenerated;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -329,13 +329,13 @@ public class simpleSQLBaseListener implements simpleSQLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDomainConstraint(simpleSQLParser.DomainConstraintContext ctx) { }
+	@Override public void enterDomainConstraints(simpleSQLParser.DomainConstraintsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDomainConstraint(simpleSQLParser.DomainConstraintContext ctx) { }
+	@Override public void exitDomainConstraints(simpleSQLParser.DomainConstraintsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

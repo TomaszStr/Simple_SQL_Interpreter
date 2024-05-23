@@ -1,5 +1,5 @@
 // Generated from C:/Users/tmstr/IdeaProjects/SQL_to_Java/simpleSQL.g4 by ANTLR 4.13.1
-package fromSQL;
+package ANTLRGenerated;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -167,11 +167,11 @@ public interface simpleSQLVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitBooleanValue(simpleSQLParser.BooleanValueContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link simpleSQLParser#domainConstraint}.
+	 * Visit a parse tree produced by {@link simpleSQLParser#domainConstraints}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDomainConstraint(simpleSQLParser.DomainConstraintContext ctx);
+	T visitDomainConstraints(simpleSQLParser.DomainConstraintsContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link simpleSQLParser#createTypeStatement}.
 	 * @param ctx the parse tree

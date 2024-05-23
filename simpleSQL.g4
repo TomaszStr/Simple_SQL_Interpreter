@@ -77,7 +77,7 @@ enumName: IDENTIFIER;
 enumValue: STRING_LITERAL;
 
 // Create domain statement
-createDomainStatement: CREATE DOMAIN domainName dataType domainConstraint? SEMICOLON;
+createDomainStatement: CREATE DOMAIN domainName dataType domainConstraints* SEMICOLON;
 
 domainName: IDENTIFIER;
 
@@ -94,7 +94,7 @@ dataType: INT_TYPE
 booleanValue: TRUE
              | FALSE;
 
-domainConstraint: checkConstraint
+domainConstraints: checkConstraint
                 | uniqueConstraint
                 | defaultConstraint
                 | notNullConstraint;

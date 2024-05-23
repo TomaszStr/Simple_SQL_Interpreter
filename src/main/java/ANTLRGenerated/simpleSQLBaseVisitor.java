@@ -1,5 +1,5 @@
 // Generated from C:/Users/tmstr/IdeaProjects/SQL_to_Java/simpleSQL.g4 by ANTLR 4.13.1
-package fromSQL;
+package ANTLRGenerated;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -200,7 +200,7 @@ public class simpleSQLBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDomainConstraint(simpleSQLParser.DomainConstraintContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDomainConstraints(simpleSQLParser.DomainConstraintsContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
