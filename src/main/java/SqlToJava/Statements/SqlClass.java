@@ -1,4 +1,4 @@
-package SqlToJava;
+package SqlToJava.Statements;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +15,9 @@ public class SqlClass extends SqlStatement {
     public String generateClassCode(){
         StringBuilder codeBuilder = new StringBuilder();
         codeBuilder
+                .append("import jakarta.persistence.*;\n\n")
+                .append("@Entity\n")
+                .append("@Table(name = \"").append(name).append("\")\n")
                 .append("class ")
                 .append(name)
                 .append(" {\n");
@@ -39,6 +42,12 @@ public class SqlClass extends SqlStatement {
 
     private String generateConstructors() {
         StringBuilder constructorBuilder = new StringBuilder();
+        // No args constructor
+        constructorBuilder
+                .append("\tpublic ")
+                .append(name)
+                .append("(){}\n");
+        // All args constructor
         constructorBuilder
                 .append("\tpublic ")
                 .append(name)

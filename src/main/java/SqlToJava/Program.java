@@ -2,6 +2,7 @@ package SqlToJava;
 
 import ANTLRGenerated.simpleSQLLexer;
 import ANTLRGenerated.simpleSQLParser;
+import SqlToJava.Statements.SqlStatement;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -31,6 +32,7 @@ public class Program {
         outPath = command.isEmpty()? outPath : command;
 
         while(continueProgram){
+            System.out.println("=".repeat(20));
             System.out.println("Would you like to convert from file or from console?\nWrite file! or console!\nTo end program write end!");
             command = scanner.nextLine();
             handleCommand(command);
@@ -63,7 +65,7 @@ public class Program {
         try {
             input = CharStreams.fromFileName(filePath);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("There was a problem reading from file: "+e.getMessage());
         }
         createFiles(input);
     }
@@ -86,9 +88,16 @@ public class Program {
         parser = new simpleSQLParser(tokens);
         tree = parser.startRule();
         visitor = new SimpleSQLParseTreeVisitor();
-        visitor.visit(tree);
+
+        try {
+            visitor.visit(tree);
+        }
+        catch (Exception e){
+            System.out.println("There was a problem while translating: "+e.getMessage());
+        }
+
         for(SqlStatement statement : visitor.statements){
-            statement.saveToFile(outPath);
+                statement.saveToFile(outPath);
         }
     }
 }

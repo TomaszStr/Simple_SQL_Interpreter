@@ -2,6 +2,7 @@ package SqlToJava;
 
 import ANTLRGenerated.simpleSQLLexer;
 import ANTLRGenerated.simpleSQLParser;
+import SqlToJava.Statements.SqlStatement;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -11,9 +12,8 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-
-        //smth();
-        consoleProgram();
+        smth();
+        //consoleProgram();
     }
 
     static void consoleProgram(){
@@ -22,7 +22,7 @@ public class Main {
     }
 
     public static void smth() {
-        String sqlFile = "src/main/resources/sql_examples/example1.sql";
+        String sqlFile = "src/main/resources/sql_examples/example3.sql";
         String fileDestination = "out/";
         CharStream input = null;
         try {

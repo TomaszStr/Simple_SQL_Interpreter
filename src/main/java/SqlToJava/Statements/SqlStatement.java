@@ -1,4 +1,4 @@
-package SqlToJava;
+package SqlToJava.Statements;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

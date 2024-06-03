@@ -1,4 +1,4 @@
-package SqlToJava;
+package SqlToJava.Statements;
 
 import java.util.ArrayList;
 import java.util.List;
