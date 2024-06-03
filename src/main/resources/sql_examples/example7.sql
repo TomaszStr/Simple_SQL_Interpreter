@@ -4,6 +4,7 @@ CREATE TYPE myEnum AS ENUM(
     'c'
     );
 CREATE TABLE myTable(
+    id INTEGER PRIMARY KEY,
     a myEnum,
     b myEnum,
     c myEnum
