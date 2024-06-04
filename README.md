@@ -48,7 +48,7 @@ CREATE TABLE Users (
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 class Users {
 	@Id
 	@Column(name = "UserID")
