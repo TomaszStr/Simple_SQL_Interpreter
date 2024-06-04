@@ -5,6 +5,8 @@ The project aims to develop an SQL interpreter that analyzes "CREATE" commands a
 
 ## Key Features:
 
+### Console program:
+- A simple console interface which lets decide whether read SQL commands from file or directly from console.
 ### SQL Command Analysis:
 - Interpretation of "CREATE TABLE" and other SQL "CREATE" commands.
 
@@ -19,10 +21,15 @@ The project aims to develop an SQL interpreter that analyzes "CREATE" commands a
 
 ### Table Relationships:
 - Generate appropriate relationships between Java classes based on foreign key definitions.
-
+- jakarta.persistance annotations.
+  
 ## Technologies:
 - Programming Language: Java
+- Build: Maven
+- Annotations: jakarta.persistance
 - SQL Parser: ANTLR
+## TBA:
+- composite foreign and primary keys
 
 ## Example:
 
@@ -30,23 +37,68 @@ The project aims to develop an SQL interpreter that analyzes "CREATE" commands a
 ```sql
 CREATE TABLE Users (
     UserID INT PRIMARY KEY,
-    UserName VARCHAR(50),
+    UserName VARCHAR(50) DEFAULT 'John Smith',
     Email VARCHAR(50) UNIQUE,
-    Age INT
+    Age INT,
+    DetailsId INT REFERENCES Details
 );
 ```
 ### Java Output:
 ```java
-public class Users {
-    private int userID;
-    private String userName;
-    private String email;
-    private int age;
+import jakarta.persistence.*;
 
-    // Getters and Setters
-    // ...
-
-    // Constructors
-    // ...
+@Entity
+@Table(name = "Users")
+class Users {
+	@Id
+	@Column(name = "UserID")
+	private int UserID;
+	@Column(name = "UserName")
+	private String UserName = "John Smith";
+	@Column(name = "Email" ,unique = true)
+	private String Email;
+	@Column(name = "Age")
+	private int Age;
+	@ManyToOne
+	@JoinColumn(name = "DetailsId")
+	private Details DetailsId;
+	public Users(){}
+	public Users(int UserID,String UserName,String Email,int Age,Details DetailsId){
+		this.UserID = UserID;
+		this.UserName = UserName;
+		this.Email = Email;
+		this.Age = Age;
+		this.DetailsId = DetailsId;
+	}
+	public void setUserID(int UserID){
+		this.UserID = UserID;
+	}
+	public void setUserName(String UserName){
+		this.UserName = UserName;
+	}
+	public void setEmail(String Email){
+		this.Email = Email;
+	}
+	public void setAge(int Age){
+		this.Age = Age;
+	}
+	public void setDetailsId(Details DetailsId){
+		this.DetailsId = DetailsId;
+	}
+	public int getUserID(){
+		return UserID;
+	}
+	public String getUserName(){
+		return UserName;
+	}
+	public String getEmail(){
+		return Email;
+	}
+	public int getAge(){
+		return Age;
+	}
+	public Details getDetailsId(){
+		return DetailsId;
+	}
 }
 ```
