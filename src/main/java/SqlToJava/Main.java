@@ -12,8 +12,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-        smth();
-        //consoleProgram();
+        consoleProgram();
     }
 
     static void consoleProgram(){
@@ -21,7 +20,7 @@ public class Main {
         program.run();
     }
 
-    public static void smth() {
+    static void smth() {
         String sqlFile = "src/main/resources/sql_examples/example3.sql";
         String fileDestination = "out/";
         CharStream input = null;

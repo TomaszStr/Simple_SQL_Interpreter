@@ -24,7 +24,7 @@ public class SimpleSQLParseTreeVisitor extends simpleSQLBaseVisitor<Void> {
 
     @Override
     public Void visitCreateTableStatement(simpleSQLParser.CreateTableStatementContext ctx) {
-        SqlClass statement = new SqlClass(capitalize(ctx.tableName().getText()));
+        SqlClass statement = new SqlClass(ctx.tableName().getText());
 
         for(var col : ctx.columnDefinition()){
             SqlColumn variable = new SqlColumn(col.columnName().getText(), col.dataType().getText());
@@ -102,7 +102,7 @@ public class SimpleSQLParseTreeVisitor extends simpleSQLBaseVisitor<Void> {
 
     @Override
     public Void visitCreateDomainStatement(simpleSQLParser.CreateDomainStatementContext ctx) {
-        SqlClass statement = new SqlClass(capitalize(ctx.domainName().getText()));
+        SqlClass statement = new SqlClass(ctx.domainName().getText());
         SqlColumn variable = new SqlColumn(ctx.domainName().getText(), ctx.dataType().getText());
         for(var constr : ctx.domainConstraints()){
             addConstraint(variable, constr);
@@ -114,7 +114,7 @@ public class SimpleSQLParseTreeVisitor extends simpleSQLBaseVisitor<Void> {
 
     @Override
     public Void visitCreateTypeStatement(simpleSQLParser.CreateTypeStatementContext ctx) {
-        SqlClass statement = new SqlClass(capitalize(ctx.typeName().getText()));
+        SqlClass statement = new SqlClass(ctx.typeName().getText());
 
         for(var col : ctx.fieldDefinition()){
             SqlColumn variable = new SqlColumn(col.columnName().getText(), col.dataType().getText());

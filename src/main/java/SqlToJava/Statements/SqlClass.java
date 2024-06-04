@@ -19,7 +19,7 @@ public class SqlClass extends SqlStatement {
                 .append("@Entity\n")
                 .append("@Table(name = \"").append(name).append("\")\n")
                 .append("class ")
-                .append(name)
+                .append(capitalize(name))
                 .append(" {\n");
 
         for(SqlColumn column : columnList){
@@ -45,12 +45,12 @@ public class SqlClass extends SqlStatement {
         // No args constructor
         constructorBuilder
                 .append("\tpublic ")
-                .append(name)
+                .append(capitalize(name))
                 .append("(){}\n");
         // All args constructor
         constructorBuilder
                 .append("\tpublic ")
-                .append(name)
+                .append(capitalize(name))
                 .append("(");
 
         constructorBuilder.append(
